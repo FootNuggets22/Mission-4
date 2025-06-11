@@ -10,6 +10,7 @@ Tina is a friendly AI-powered assistant that helps users choose the best car ins
 - **Smart Questioning:** Tina asks up to 5 questions to understand your needs.
 - **AI-Powered:** Uses Gemini AI for natural, helpful, and concise responses.
 - **Safe & Secure:** User input is sanitized and backend is protected against invalid requests.
+- **Dockerized:** Easily run both frontend and backend using Docker and Docker Compose.
 
 ---
 
@@ -19,6 +20,7 @@ Tina is a friendly AI-powered assistant that helps users choose the best car ins
 
 - [Node.js](https://nodejs.org/) (v18 or higher recommended)
 - [npm](https://www.npmjs.com/)
+- [Docker](https://www.docker.com/) (optional, for containerized setup)
 - Gemini API Key (from Google AI Studio or Google Cloud)
 
 ---
@@ -61,6 +63,29 @@ The frontend will run on [http://localhost:3000](http://localhost:3000).
 
 ---
 
+## Dockerized Setup
+
+You can run both the frontend and backend using Docker for easier deployment.
+
+### 1. Build and Run with Docker Compose
+
+Make sure you have a `.env` file with your Gemini API key in the `Backend` folder.
+
+```bash
+docker-compose up --build
+```
+
+- The backend will be available at [http://localhost:4000](http://localhost:4000)
+- The frontend will be available at [http://localhost:3000](http://localhost:3000)
+
+### 2. Stopping the Containers
+
+```bash
+docker-compose down
+```
+
+---
+
 ## Usage
 
 1. Open the frontend in your browser.
@@ -75,14 +100,18 @@ The frontend will run on [http://localhost:3000](http://localhost:3000).
 ```
 Mission-4/
 ├── Backend/         # Express server and Gemini API integration
-│   └── server.js
+│   ├── server.js
+│   ├── Dockerfile
+│   └── .env
 ├── Frontend/
 │   └── Mission-4-frontend/
 │       ├── src/
 │       │   └── components/
 │       │       └── Tina.jsx
-│       └── public/
-│       └── package.json
+│       ├── public/
+│       ├── package.json
+│       └── Dockerfile
+├── docker-compose.yml
 └── README.md
 ```
 
@@ -106,3 +135,4 @@ This project is for educational purposes.
 - [React](https://react.dev/)
 - [Express](https://expressjs.com/)
 - [Gemini AI](https://ai.google.dev/)
+- [Docker](https://www.docker.com/)
